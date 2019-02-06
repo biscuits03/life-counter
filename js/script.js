@@ -23,13 +23,18 @@ $( document ).ready(() => {
 	})
 
 	$( '#die-roll_button' ).click(function() {
-  		$( '.die-roll' ).toggle()
   	
   		$( '.die-roll__number' ).each(function() {
   			var value = Math.floor(Math.random() * 6) + 1
 
   			$( this ).text( value )
   		})
+
+  		$( '.die-roll' ).show()
+
+  		setTimeout(function() {
+  			$( '.die-roll' ).hide()
+  		}, 3000 )
 
   	})
 })
