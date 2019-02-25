@@ -175,3 +175,7 @@ button {
  .main-menu-open .main-menu {
  	top: 0;
  }
+
+ .change-life.active {
+ 	background: rgba(0,0,0,.1);
+ }
