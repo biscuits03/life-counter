@@ -20,21 +20,37 @@ $( document ).ready(() => {
 	
 	$('#refresh-button').click(function() {
 		$( '.life-total' ).text( '20' )
+  		$( 'body' ).removeClass( 'main-menu-open' )
 	})
 
 	$( '#die-roll_button' ).click(function() {
   	
   		$( '.die-roll__number' ).each(function() {
-  			var value = Math.floor(Math.random() * 6) + 1
+        var self = $( this )
 
-  			$( this ).text( value )
+  			var randomNumberInterval = setInterval(function() {
+          var value = Math.floor(Math.random() * 6) + 1
+          self.text( value )
+        }, 300 )
+
+  			setTimeout(function() {
+          clearInterval( randomNumberInterval )
+	  		}, 2000 )
+
   		})
 
   		$( '.die-roll' ).show()
+  		$( '.main-menu' ).hide()
+  		$( 'body' ).removeClass( 'main-menu-open' )
 
   		setTimeout(function() {
   			$( '.die-roll' ).hide()
-  		}, 3000 )
+  			$( '.main-menu' ).show()
+  		}, 3500 )
 
+  	})
+
+  	$( '.main-menu__button' ).click(function() {
+  		$( 'body' ).toggleClass( 'main-menu-open' )
   	})
 })
